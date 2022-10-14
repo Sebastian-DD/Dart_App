@@ -1,18 +1,18 @@
 <template>
-    <ion-header>
-        <ion-toolbar>
-            <ion-title>Game settings</ion-title>
-        </ion-toolbar>
-    </ion-header>
-    <ion-button class="startGameButton" @click="startGame" shape="round">
-        Start Game
-    </ion-button>
-
-
+    <ion-page>
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>Game settings</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-button class="startGameButton" @click="startGame" shape="round">
+            Start Game
+        </ion-button>
+    </ion-page>
 </template>
 
 <script lang="ts" setup>
-    import { alertController } from '@ionic/vue';
+    import { IonPage, IonHeader, IonToolbar, IonTitle, alertController } from '@ionic/vue';
 
     const startGame = async () => {
         const alert = await alertController.create({
