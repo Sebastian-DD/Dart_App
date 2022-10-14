@@ -1,0 +1,7 @@
+{
+  "name": "Dart_App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
