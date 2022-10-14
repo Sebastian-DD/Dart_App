@@ -35,26 +35,18 @@
     </ion-list>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
     import { alertController } from '@ionic/vue';
 
-    export default {
-        components: {},
+    const presentAlert = async (playerName: string) => {
+        const alert = await alertController.create({
+            header: 'Alert',
+            subHeader: 'You selected Player:',
+            message: playerName,
+            buttons: ['OK'],
+        });
 
-        setup() {
-            const presentAlert = async (playerName: string) => {
-                const alert = await alertController.create({
-                    header: 'Alert',
-                    subHeader: 'You selected Player:',
-                    message: playerName,
-                    buttons: ['OK'],
-                });
-
-                await alert.present();
-            };
-
-            return { presentAlert };
-        },
+        await alert.present();
     };
 </script>
 

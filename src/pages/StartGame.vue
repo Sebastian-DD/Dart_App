@@ -11,30 +11,24 @@
 
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
     import { alertController } from '@ionic/vue';
 
-    export default {
-        components: {},
+    const startGame = async () => {
+        const alert = await alertController.create({
+            header: 'Alert',
+            message: 'Game Started',
+            buttons: ['OK'],
+        });
 
-        setup() {
-            const startGame = async () => {
-                const alert = await alertController.create({
-                    header: 'Alert',
-                    message: 'Game Started',
-                    buttons: ['OK'],
-                });
-
-                await alert.present();
-            };
-
-            return { startGame };
-        },
+        await alert.present();
     };
+    
 </script>
 
 <style>
     .startGameButton{
-        margin: auto 15% auto 15%;
+        width: 70%;
+        margin: 1rem 15% auto 15%;
     }
 </style>
