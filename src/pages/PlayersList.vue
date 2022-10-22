@@ -1,44 +1,29 @@
 <template>
-    <ion-page>
+    <ion-page class="ion-justify-content-start">
         <ion-header>
             <ion-toolbar>
                 <ion-title>Registered Players</ion-title>
             </ion-toolbar>
         </ion-header>
+        <ion-button @click="generatePlayer()" expand="block" fill="clear" shape="round">
+            Generate Player
+        </ion-button>
         <ion-list>
-            <ion-item @click="presentAlert('Gunnar')">
-                <ion-label expand="full">Gunnar</ion-label>
+            <ion-item @click="presentAlert('Gunnar')" v-for="(player,i) in players" :key="i">
+                <ion-label expand="full">{{player}}</ion-label>
                 <ion-button>Game History</ion-button>
                 <ion-button>Stats</ion-button>
                 <ion-button>Edit</ion-button>
             </ion-item>
-            <ion-item ref="player1" hidden>
-                <ion-input placeholder="Gunnar"></ion-input>
-            </ion-item>
-            <ion-item @click="presentAlert('Janek')">
-                <ion-label expand="full">Janek</ion-label>
-                <ion-button>Game History</ion-button>
-                <ion-button>Stats</ion-button>
-                <ion-button >Edit</ion-button>
-            </ion-item>
-            <ion-item class="Janek" hidden>
-                <ion-input placeholder="Janek"></ion-input>
-            </ion-item>
-            <ion-item @click="presentAlert('Seppel')">
-                <ion-label expand="full">Seppel</ion-label>
-                <ion-button>Game History</ion-button>
-                <ion-button>Stats</ion-button>
-                <ion-button >Edit</ion-button>
-            </ion-item>
-            <ion-item class="Seppel" hidden>
-                <ion-input placeholder="Seppel"></ion-input>
-            </ion-item>
-        </ion-list>
+        </ion-list>       
+        
     </ion-page>
 </template>
 
 <script lang="ts" setup>
-    import { IonPage, IonHeader, IonToolbar, IonTitle, alertController } from '@ionic/vue';
+    import { IonPage, IonHeader, IonToolbar, IonTitle, IonList, IonLabel, IonButton, IonItem, alertController } from '@ionic/vue';
+
+    const players = ["Gunnar", "Seppel", "Janek"]
 
     const presentAlert = async (playerName: string) => {
         const alert = await alertController.create({
@@ -50,12 +35,13 @@
 
         await alert.present();
     };
+
+    const generatePlayer = () => {
+        players.push("neuer Spieler")
+    };
 </script>
 
 <style>
-    ion-page{
-        justify-content: normal;
-    }
     ion-button{
         justify-content: right;
     }
