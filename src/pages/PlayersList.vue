@@ -21,10 +21,11 @@
 </template>
 
 <script lang="ts" setup>
-    import { IonPage, IonHeader, IonToolbar, IonTitle, IonList, IonLabel, IonButton, IonItem, alertController } from '@ionic/vue';
+    import { IonPage, IonButton, IonHeader, IonToolbar, IonTitle, IonList, IonLabel, IonItem, alertController } from '@ionic/vue';
+    import { ref } from 'vue';
 
-    const players = ["Gunnar", "Seppel", "Janek"]
-
+    const players = ref(["Gunnar", "Seppel", "Janek"])
+    
     const presentAlert = async (playerName: string) => {
         const alert = await alertController.create({
             header: 'Alert',
@@ -37,7 +38,7 @@
     };
 
     const generatePlayer = () => {
-        players.push("neuer Spieler")
+        players.value.push("neuer Spieler")
     };
 </script>
 

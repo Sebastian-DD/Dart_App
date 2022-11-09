@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-    import { IonPage, IonHeader, IonToolbar, IonTitle, alertController } from '@ionic/vue';
+    import { IonPage, IonButton, IonHeader, IonToolbar, IonTitle, alertController } from '@ionic/vue';
 
     const startGame = async () => {
         const alert = await alertController.create({

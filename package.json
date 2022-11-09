@@ -20,7 +20,7 @@
     "@types/node": "^18.8.0",
     "core-js": "^3.6.5",
     "ionicons": "^6.0.3",
-    "vue": "^3.2.21",
+    "vue": "^3.2.42",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
